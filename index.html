@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>JoyaGoo spreadsheet — stijlgids, categorieën en QC-checks</title>
+<meta name="description" content="Verken de JoyaGoo spreadsheet met een Nederlandse gids voor sneakers, kleding en accessoires. Vergelijk maten, QC-foto’s en kosten; bekijk categorieën bij cafans.">
+<meta name="theme-color" content="#233c36">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:title" content="JoyaGoo spreadsheet — van inspiratie naar een bewuste keuze">
+<meta property="og:description" content="Een onafhankelijke Nederlandse gids: kies een categorie, controleer de details en vergelijk je favorieten.">
+<meta name="twitter:card" content="summary">
+<!-- Bestand: index.html. Voeg een canonical en og:url pas toe zodra de eigen publicatie-URL bekend is. -->
+<!-- Onderzoek: de directe Bing-resultaatpagina was niet toegankelijk. Tien relevante websites uit beschikbare zoekresultaten, zonder bevestigde Bing-rangorde: joyagoosheets.com; joyagoospreadsheet.com; joyagoo--spreadsheet.com; repsheet.net; joyagoosheet.org; ssfinds.com; joyagoospreadsheet.gg; joyago.motorcycles; sheetjoyagoo.com; joyagoochina.org. Onderwerpen: categorieën, productlinks, maatvergelijking, QC en kosten. Geen verkoopclaims of aantallen overgenomen. Procescontrole: mapi.joyagoo.com/help-center/shopping-assistant-guidance/. -->
+<link rel="preconnect" href="images.unsplash.com">
+<style>
+:root {
+  --paper: #f6f3eb;
+  --ink: #233c36;
+  --muted: #56635b;
+  --line: #d8ddd1;
+  --accent: #dff184;
+  --white: #fffef9;
+  --serif: Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #a05024;
+  outline-offset: 5px;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1, h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+h1 {
+  font-size: clamp(2.8rem, 6.3vw, 5.6rem);
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  margin-bottom: 22px;
+}
+h3 {
+  font-size: 1.12rem;
+  line-height: 1.35;
+}
+p { margin-bottom: 18px; }
+.wrap {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.masthead span {
+  font-size: .8rem;
+  color: var(--muted);
+}
+.eyebrow {
+  font-size: .75rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+.categories { padding: 22px 0 26px; }
+.categories p {
+  font-size: .8rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.category-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 49px;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: .82rem;
+  text-decoration: none;
+  background: var(--white);
+}
+.category-grid a:hover {
+  background: var(--accent);
+  border-color: var(--ink);
+}
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 5%;
+  padding: 35px 0 70px;
+  align-items: center;
+}
+.hero-copy > p:not(.eyebrow) {
+  max-width: 550px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  padding: 13px 21px;
+  background: var(--ink);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 650;
+}
+.button:hover { background: #37564c; }
+.hero figure {
+  margin: 0;
+  position: relative;
+}
+.hero img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 90px 4px 4px 4px;
+  background: #e9e5dc;
+}
+.hero figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: .77rem;
+}
+.hero .label {
+  position: absolute;
+  bottom: 55px;
+  left: -25px;
+  background: var(--accent);
+  padding: 14px 20px;
+  font-size: .8rem;
+  transform: rotate(-4deg);
+  max-width: 220px;
+}
+.notice {
+  margin: 20px 0 0;
+  font-size: .8rem;
+  color: var(--muted);
+}
+.answer {
+  background: var(--ink);
+  color: var(--white);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 35px;
+  border-radius: 5px;
+}
+.answer h2 {
+  font-size: 2.2rem;
+  margin: 0;
+}
+.answer p {
+  margin: 0;
+  max-width: 750px;
+}
+.section {
+  padding: 75px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.section-head p {
+  color: var(--muted);
+  max-width: 500px;
+}
+.section-head h2 { margin-bottom: 0; }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.visual {
+  margin: 0;
+  min-width: 0;
+}
+.visual img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.visual figcaption { padding-top: 14px; }
+.visual strong {
+  display: block;
+  font-size: .95rem;
+  margin-bottom: 6px;
+}
+.visual p {
+  font-size: .85rem;
+  color: var(--muted);
+}
+.photo-note {
+  font-size: .8rem;
+  color: var(--muted);
+  margin: 22px 0 0;
+}
+.guides {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.guides article {
+  border-top: 3px solid var(--ink);
+  padding-top: 22px;
+}
+.number {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  color: #667255;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+.guides p,
+.guides li {
+  font-size: .92rem;
+  color: var(--muted);
+}
+ul, ol { padding-left: 22px; }
+li { padding-bottom: 7px; }
+.guide-link {
+  font-weight: 650;
+  font-size: .9rem;
+}
+.compare { overflow-x: auto; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: .92rem;
+}
+th, td {
+  text-align: left;
+  padding: 17px 15px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+th { background: #e9eddd; }
+td:first-child {
+  font-weight: 650;
+  min-width: 130px;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+.panel {
+  padding: 30px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.panel h3 {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 400;
+}
+.panel p {
+  color: var(--muted);
+  font-size: .94rem;
+}
+.faq { max-width: 850px; }
+.faq details {
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+}
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding-right: 15px;
+}
+details p {
+  color: var(--muted);
+  margin: 15px 0 0;
+}
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 42px;
+  background: var(--accent);
+  border-radius: 5px;
+  margin: 65px 0;
+}
+.cta h2 {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+}
+.cta p {
+  margin-bottom: 0;
+  max-width: 650px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 0 0 35px;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.footer p { max-width: 700px; }
+.footer a { white-space: nowrap; }
+@media (min-width: 850px) {
+  .section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+  }
+}
+@media (max-width: 850px) {
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero { gap: 30px; }
+  .hero .label { left: 12px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .guides {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .answer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .section-head { gap: 25px; }
+  .split { gap: 20px; }
+}
+@media (max-width: 580px) {
+  .masthead { padding: 18px 0; }
+  .masthead span {
+    max-width: 150px;
+    text-align: right;
+    font-size: .7rem;
+  }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-grid a { font-size: .78rem; }
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+  .hero img {
+    aspect-ratio: 5/4;
+    border-radius: 55px 4px 4px 4px;
+  }
+  .hero .label { bottom: 52px; }
+  .answer { padding: 26px; }
+  .section { padding: 45px 0; }
+  .section-head,
+  .split {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .gallery { gap: 12px; }
+  .visual strong { font-size: .85rem; }
+  .visual p { font-size: .8rem; }
+  .panel { padding: 23px; }
+  .cta {
+    padding: 27px;
+    display: block;
+    margin: 40px 0;
+  }
+  .cta .button { margin-top: 25px; }
+  .footer { display: block; }
+  th, td { padding: 13px 10px; }
+  h1 { font-size: 3.05rem; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "JoyaGoo spreadsheet — stijlgids, categorieën en QC-checks",
+      "inLanguage": "nl",
+      "description": "Onafhankelijke Nederlandse gids voor productselectie, maten, QC-foto’s en kosten, met categorielinks naar cafans."
+    },
+    {
+      "@type": "Article",
+      "headline": "JoyaGoo kleding vergelijken: pasvorm vóór het label",
+      "inLanguage": "nl",
+      "author": {
+        "@type": "Organization",
+        "name": "cafans.com"
+      },
+      "articleBody": "Vergelijk kleding met een goed passend kledingstuk dat je al bezit. Controleer borstbreedte, schouderbreedte en ruglengte bij hoodies en T-shirts. Bekijk bij broeken de taille, binnenbeenlengte en het meetpunt. Controleer de samenstelling op de actuele productpagina; leid materiaal niet alleen af uit een foto."
+    },
+    {
+      "@type": "FAQPage",
+      "inLanguage": "nl",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wat is een JoyaGoo spreadsheet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een JoyaGoo spreadsheet is een productoverzicht waarmee je artikelen en bronlinks kunt verzamelen en vergelijken. Het is een startpunt voor onderzoek, geen garantie voor voorraad, kwaliteit of een vaste eindprijs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ik hier rechtstreeks via JoyaGoo bestellen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. Deze pagina is een onafhankelijke gids. De categorieknoppen openen cafans-categorieën en de overige links openen de homepage van cafans. Bestellen, betalen en eventuele agentdiensten regel je op de betreffende externe website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zijn de getoonde merkfoto’s beschikbare producten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De foto’s zijn stijlinspiratie en geen geverifieerde cafans-aanbiedingen. Ze bewijzen geen voorraad, authenticiteit of samenwerking met Nike, Louis Vuitton, Gucci, Hermès of Dior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat controleer ik op QC-foto’s?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vergelijk kleur, maatlabel, zichtbare afwerking en de gekozen variant met je bestelling. Vraag om extra beelden of metingen als een belangrijk detail ontbreekt. QC-foto’s garanderen geen authenticiteit, duurzaamheid of pasvorm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe vergelijk ik de totale kosten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tel de actuele artikelprijs, binnenlandse verzending, eventuele servicekosten en internationale verzending bij elkaar op. Controleer daarnaast mogelijke belastingen en invoerkosten voor je bestemming. Een bedrag in een spreadsheet is geen definitieve offerte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke maat kies ik voor sneakers of kleding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gebruik de maattabel van de specifieke variant. Vergelijk voetlengte en beschikbare binnenmaten bij sneakers; meet bij kleding een goed passend kledingstuk. Een EU-maat of S/M/L-label alleen is onvoldoende."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/ibwik/">
+</head>
+<body>
+<header class="wrap masthead">
+  <a class="brand" href="https://www.cafans.com">cafans.com</a>
+  <span>Een Nederlandse blik op stijl en slimme productkeuzes</span>
+</header>
+
+<main class="wrap">
+  <nav class="categories" aria-label="Productcategorieën bij cafans">
+    <p>Kies je categorie · deze links openen cafans</p>
+    <div class="category-grid">
+      <a href="https://cafans.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a>
+      <a href="https://cafans.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Het stijlnotitieboek / Nederlandstalige gids</p>
+      <h1 id="hero-title">JoyaGoo spreadsheet.<br>Een goede keuze begint bij de details.</h1>
+      <p>Van een paar sneakers tot een zorgvuldig gekozen accessoire: begin met een duidelijke categorie en vergelijk daarna pasvorm, materiaal en afwerking. Deze gids helpt je van losse inspiratie naar een overzichtelijke selectie.</p>
+      <a class="button" href="https://www.cafans.com">Ontdek cafans <span aria-hidden="true">↗</span></a>
+      <p class="notice">Onafhankelijke informatiepagina. De links leiden naar cafans; dit is geen officiële JoyaGoo-spreadsheet of bestelomgeving.</p>
+    </div>
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
+        width="800"
+        height="1000"
+        fetchpriority="high"
+        decoding="async"
+        alt="Rode Nike sneaker met witte swoosh tegen een rode achtergrond">
+      <span class="label">Eerst de vorm.<br>Dan de uitvoering.</span>
+      <figcaption>Nike sneaker als visuele stijlinspiratie; geen geverifieerde productaanbieding.</figcaption>
+    </figure>
+  </section>
+
+  <section class="answer" aria-labelledby="definition">
+    <h2 id="definition">Wat is een JoyaGoo spreadsheet?</h2>
+    <p>Een JoyaGoo spreadsheet is een productoverzicht waarmee je artikelen en bronlinks kunt verzamelen en vergelijken. Het is een startpunt voor onderzoek, geen garantie voor voorraad, kwaliteit of een vaste eindprijs. Gebruik een vondst om de actuele productpagina, de juiste variant en de bijkomende kosten te controleren.</p>
+  </section>
+
+  <section class="section" aria-labelledby="inspiration">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">01 / Het visuele vertrekpunt</p>
+        <h2 id="inspiration">Vier details die een outfit richting geven.</h2>
+      </div>
+      <p>Combineer een herkenbaar silhouet met rustige kleuren. Bekijk een tas, pet, sjaal of sieraad als een afzonderlijke keuze: formaat en draagcomfort tellen net zo goed mee als uitstraling.</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="visual">
+        <img
+          src="https://en.louisvuitton.com/images/is/image/content/dam/lv/editorial-content/New-Homepage/2024/central/category/women_bags/Women_Bags_WW_HP_Category_Push_20240712_DII.jpg?wid=600"
+          width="600"
+          height="600"
+          loading="lazy"
+          decoding="async"
+          alt="Louis Vuitton handtas in bruin monogramcanvas met lichte leren hengsels">
+        <figcaption>
+          <strong>Louis Vuitton / volume</strong>
+          <p>Vergelijk tasafmetingen en draaglengte. Controleer of sluiting en vakindeling bij je dagelijkse gebruik passen.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="visual">
+        <img
+          src="https://cuccuini.it/sync/foto/FW25---Gucci---7890164HBA89784.JPG"
+          width="600"
+          height="600"
+          loading="lazy"
+          decoding="async"
+          alt="Beige Gucci GG-pet met groen-rode band over de klep">
+        <figcaption>
+          <strong>Gucci / proportie</strong>
+          <p>Let bij een pet op hoofdomtrek, verstelbaarheid en klepvorm. Een productfoto vertelt niet hoe hoog de kroon valt.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="visual">
+        <img
+          src="https://www.luxe-em.com/cdn/shop/files/001_3e78aa64-04f3-4ec6-81eb-e3aad7cdb5bc.jpg?width=600"
+          width="600"
+          height="600"
+          loading="lazy"
+          decoding="async"
+          alt="Oranje Hermès zijden sjaal met een decoratief patroon van sleutels">
+        <figcaption>
+          <strong>Hermès / kleuraccent</strong>
+          <p>Een sjaal verandert een eenvoudige combinatie. Vergelijk lengte, breedte en de opgegeven stof vóór je kiest.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="visual">
+        <img
+          src="https://assets.christiandior.com/is/image/diorprod/N1583DVOCYD301_E01?%24default_GHC%24=&amp;wid=600"
+          width="600"
+          height="600"
+          loading="lazy"
+          decoding="async"
+          alt="Goudkleurige Dior schakelketting met DIOR-letters en witte kristallen">
+        <figcaption>
+          <strong>Dior / afwerking</strong>
+          <p>Bekijk bij sieraden de kettinglengte, sluiting en materiaalopgave. Foto’s tonen geen volledige samenstelling.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="photo-note">Alle merkbeelden dienen als stijlinspiratie. Ze bevestigen geen beschikbaarheid of authenticiteit bij cafans en impliceren geen samenwerking met de afgebeelde merken.</p>
+  </section>
+
+  <section class="section" aria-labelledby="finds">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">02 / Drie korte artikelen</p>
+        <h2 id="finds">JoyaGoo finds met een duidelijk doel.</h2>
+      </div>
+      <p>Een bruikbare shortlist bevat meer dan een mooie foto. Noteer de productlink, kleur, maat, belangrijkste afmetingen en wat je nog moet controleren.</p>
+    </div>
+
+    <div class="guides">
+      <article>
+        <span class="number">01</span>
+        <h3>JoyaGoo sneakers: vergelijk de maat, niet alleen het model</h3>
+        <p>Zoek je sneakers op voetlengte, kijk dan eerst naar de maattabel van de specifieke uitvoering. Een EU-maat vergelijken werkt beter wanneer je ook het meetpunt en de beschikbare binnenmaten kent.</p>
+        <ul>
+          <li>Controleer schoenbreedte en ruimte bij de tenen.</li>
+          <li>Bekijk zoolprofiel, hielvorm en zichtbare stiksels.</li>
+          <li>Vraag bij twijfel om een binnenzoolmeting; verwar zoollengte niet met voetlengte.</li>
+        </ul>
+        <a class="guide-link" href="https://cafans.com/category-911-Shoes.html">Bekijk de schoenencategorie ↗</a>
+      </article>
+
+      <article>
+        <span class="number">02</span>
+        <h3>JoyaGoo kleding vergelijken: pasvorm vóór het label</h3>
+        <p>Vergelijk kleding met een goed passend kledingstuk dat je al bezit. Controleer borstbreedte, schouderbreedte en ruglengte bij hoodies en T-shirts. Bekijk bij broeken de taille, binnenbeenlengte en het meetpunt.</p>
+        <p>Wil je een oversized hoodie kiezen, vergelijk dan de werkelijke breedte. Controleer de samenstelling op de actuele productpagina; leid materiaal niet alleen af uit een foto. Let bij een T-shirt ook op halsboord en zoom.</p>
+        <a class="guide-link" href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Bekijk hoodies en sweaters ↗</a>
+      </article>
+
+      <article>
+        <span class="number">03</span>
+        <h3>JoyaGoo accessoires: kleine items, concrete controles</h3>
+        <p>Voor een tas met dagelijkse spullen zijn opening en vakindeling belangrijk. Bij hoofddeksels vergelijk je de hoofdomtrek; voor een sjaal controleer je formaat en wasvoorschrift.</p>
+        <p>Bekijk bij sieraden de materiaalvermelding en verstelbare lengte. Controleer bij sets de maten van beide delen afzonderlijk. Een bijpassende kleur betekent niet automatisch dezelfde pasvorm.</p>
+        <a class="guide-link" href="https://cafans.com/category-920-Accessories.html">Bekijk accessoires ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="checklist">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">03 / De vergelijkkaart</p>
+        <h2 id="checklist">Wat noteer je vóór een bestelling?</h2>
+      </div>
+      <p>Bewaar de exacte variant en de datum waarop je de informatie controleerde. Zo voorkom je dat een oude foto of vanafprijs voor de huidige aanbieding doorgaat.</p>
+    </div>
+
+    <div class="compare">
+      <table>
+        <caption>Een praktische checklist voor productlinks en kledingmaten</caption>
+        <thead>
+          <tr>
+            <th scope="col">Categorie</th>
+            <th scope="col">Eerst vergelijken</th>
+            <th scope="col">Daarna controleren</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sneakers</td>
+            <td>Voetlengte, breedte en maattabel</td>
+            <td>Variant, binnenzoolmeting en zichtbare afwerking</td>
+          </tr>
+          <tr>
+            <td>Hoodies &amp; T-shirts</td>
+            <td>Borstbreedte, schouders en ruglengte</td>
+            <td>Stofsamenstelling, halsboord en meetmethode</td>
+          </tr>
+          <tr>
+            <td>Jassen</td>
+            <td>Schoudermaat en ruimte voor lagen</td>
+            <td>Voering, sluiting, mouwlengte en onderhoud</td>
+          </tr>
+          <tr>
+            <td>Broeken &amp; shorts</td>
+            <td>Taille, heupbreedte en binnenbeenlengte</td>
+            <td>Elastiek, verstelbaarheid en lengte van de gekozen maat</td>
+          </tr>
+          <tr>
+            <td>Sets &amp; jerseys</td>
+            <td>Maten van ieder deel en gewenste bewegingsruimte</td>
+            <td>Materiaal, printdetails en wasinstructies</td>
+          </tr>
+          <tr>
+            <td>Ondergoed</td>
+            <td>Taillemaat en opgegeven samenstelling</td>
+            <td>Verpakkingsaantal en retourvoorwaarden voor hygiëneartikelen</td>
+          </tr>
+          <tr>
+            <td>Accessoires</td>
+            <td>Afmetingen, draaglengte en sluiting</td>
+            <td>Materiaalopgave, verstelbaarheid en gebruiksdetails</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="qc">
+    <p class="eyebrow">04 / Foto’s en het volledige bedrag</p>
+    <h2 id="qc">JoyaGoo QC-foto’s begrijpen.</h2>
+
+    <div class="split">
+      <article class="panel">
+        <h3>Een foto is een controlepunt</h3>
+        <p>Maak onderscheid tussen verkopersfoto’s, beelden van eerdere bestellingen en QC-foto’s van jouw eigen artikel. Alleen die laatste kunnen de ontvangen variant bij jouw bestelling laten zien.</p>
+        <ol>
+          <li>Vergelijk kleur en maatlabel met je opgeslagen keuze.</li>
+          <li>Controleer naden, sluitingen en zichtbare beschadigingen.</li>
+          <li>Vraag extra detailfoto’s of metingen wanneer iets ontbreekt.</li>
+        </ol>
+        <p>Een QC-check is geen authenticiteitsbewijs en voorspelt niet hoe een stof na langdurig dragen aanvoelt.</p>
+      </article>
+
+      <article class="panel">
+        <h3>Vergelijk de totale kosten</h3>
+        <p>De artikelprijs vergelijken is slechts het begin. Noteer binnenlandse verzending, eventuele servicekosten en internationale verzending afzonderlijk. Controleer ook mogelijke belastingen en invoerkosten voor je bestemming.</p>
+        <p>Bij pakketgewicht en volumemaat vergelijken telt de gekozen verzendmethode mee. Een valutabedrag is alleen bruikbaar met de koers en eventuele betaalopslag erbij.</p>
+        <p>Controleer levertijd, verzendbeperkingen en retourvoorwaarden op de website waar je daadwerkelijk bestelt. Deze gids doet geen prijs- of leverbelofte.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="faq-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">05 / Direct antwoord</p>
+        <h2 id="faq-title">Veelgestelde vragen.</h2>
+      </div>
+      <p>De belangrijkste antwoorden over de gids, de beelden en het vergelijken van een product.</p>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>Wat is een JoyaGoo spreadsheet?</summary>
+        <p>Een JoyaGoo spreadsheet is een productoverzicht waarmee je artikelen en bronlinks kunt verzamelen en vergelijken. Het is een startpunt voor onderzoek, geen garantie voor voorraad, kwaliteit of een vaste eindprijs.</p>
+      </details>
+
+      <details>
+        <summary>Kan ik hier rechtstreeks via JoyaGoo bestellen?</summary>
+        <p>Nee. Deze pagina is een onafhankelijke gids. De categorieknoppen openen cafans-categorieën en de overige links openen de homepage van cafans. Bestellen, betalen en eventuele agentdiensten regel je op de betreffende externe website.</p>
+      </details>
+
+      <details>
+        <summary>Zijn de getoonde merkfoto’s beschikbare producten?</summary>
+        <p>De foto’s zijn stijlinspiratie en geen geverifieerde cafans-aanbiedingen. Ze bewijzen geen voorraad, authenticiteit of samenwerking met Nike, Louis Vuitton, Gucci, Hermès of Dior.</p>
+      </details>
+
+      <details>
+        <summary>Wat controleer ik op QC-foto’s?</summary>
+        <p>Vergelijk kleur, maatlabel, zichtbare afwerking en de gekozen variant met je bestelling. Vraag om extra beelden of metingen als een belangrijk detail ontbreekt. QC-foto’s garanderen geen authenticiteit, duurzaamheid of pasvorm.</p>
+      </details>
+
+      <details>
+        <summary>Hoe vergelijk ik de totale kosten?</summary>
+        <p>Tel de actuele artikelprijs, binnenlandse verzending, eventuele servicekosten en internationale verzending bij elkaar op. Controleer daarnaast mogelijke belastingen en invoerkosten voor je bestemming. Een bedrag in een spreadsheet is geen definitieve offerte.</p>
+      </details>
+
+      <details>
+        <summary>Welke maat kies ik voor sneakers of kleding?</summary>
+        <p>Gebruik de maattabel van de specifieke variant. Vergelijk voetlengte en beschikbare binnenmaten bij sneakers; meet bij kleding een goed passend kledingstuk. Een EU-maat of S/M/L-label alleen is onvoldoende.</p>
+      </details>
+    </div>
+  </section>
+
+  <aside class="cta" aria-label="Verder kijken bij cafans">
+    <div>
+      <h2>Maak je selectie kleiner.<br>Je vergelijking wordt beter.</h2>
+      <p>Kies een categorie, bewaar een paar kandidaten en controleer de details die voor jou tellen.</p>
+    </div>
+    <a class="button" href="https://www.cafans.com">Verder naar cafans <span aria-hidden="true">↗</span></a>
+  </aside>
+</main>
+
+<footer class="wrap footer">
+  <p>Een onafhankelijke stijlgids rond JoyaGoo spreadsheet. Geen officiële vertegenwoordiging van JoyaGoo of de afgebeelde merken. Beelden zijn illustratief; controleer productgegevens op de actuele bestemmingspagina.</p>
+  <a href="https://www.cafans.com">cafans.com ↗</a>
+</footer>
+</body>
+</html>
